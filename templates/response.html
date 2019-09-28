@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fake News Detection using Machine Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/css/mdb.min.css" rel="stylesheet">
+    <style>
+        .jumbotron {
+            width: 1200px;
+            height: auto;
+            margin-left: 6%;
+            margin-top: 5%;
+        }
+        img{
+            width:400px;
+            height: 350px;
+            margin-left: 10%;
+        }
+        h3{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark primary-color" style="height: 100px;">
+  <a class="navbar-brand" href="#" style="font-weight: bold;margin-left: 35%;font-size: 28px;">Fake News Detection using Machine Learning</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+    <div class="jumbotron">
+        <p id ="result" style="display: none;">{{ r }}</p>
+
+        <div class="row">
+            <div class="col">
+                <h4 style="text-align:center;margin-left: 2%;color: blue"><b>Analysis</b></h4><br><br>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <h2>LOGISTIC REGRESSION - USING TF FEATURES</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="/media/curve_LOGISTIC%20REGRESSION.png"/>
+            </div>
+             <div class="col">
+                <img src="/media/LOGISTIC%20REGRESSION.png"/>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                  <thead class="black white-text">
+                    <tr style="text-align: center;">
+                      <th scope="col">Total statements classified:</th>
+                      <th scope="col">Confusion matrix:</th>
+                      <th scope="col">F1 score</th>
+                      <th scope="col">Precision</th>
+                        <th scope="col">Recall</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: bold;" id="r1"></td>
+                      <td style="font-weight: bold;" id="r2"></td>
+                      <td style="font-weight: bold;"id="r3"></td>
+                        <td style="font-weight: bold;" id="r4"></td>
+                      <td style="font-weight: bold;" id="r5"></td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+        <br><br>
+
+
+        <div class="row">
+            <div class="col">
+                <h2>LOGISTIC REGRESSION - USING TF-IDF FEATURES</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="/media/curve_LOGISTIC%20REGRESSION%20-%20USING%20TF-IDF%20FEATURES.png"/>
+            </div>
+            <div class="col">
+                <img src="/media/LOGISTIC%20REGRESSION%20-%20USING%20TF-IDF%20FEATURES.png"/>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <table class="table">
+                  <thead class="black white-text">
+                    <tr style="text-align: center;">
+                      <th scope="col">Total statements classified:</th>
+                      <th scope="col">Confusion matrix:</th>
+                      <th scope="col">F1 score</th>
+                      <th scope="col">Precision</th>
+                        <th scope="col">Recall</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: bold;" id="r6"></td>
+                      <td style="font-weight: bold;" id="r7"></td>
+                      <td style="font-weight: bold;"id="r8"></td>
+                        <td style="font-weight: bold;" id="r9"></td>
+                      <td style="font-weight: bold;" id="r10"></td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+        <br><br>
+
+        <div class="row">
+            <div class="col">
+                <h2>NAIVE BAYES - USING TF FEATURES</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="/media/curve_NAIVE%20BAYES%20-%20USING%20TF%20FEATURES.png"/>
+            </div>
+             <div class="col">
+                <img src="/media/NAIVE%20BAYES%20-%20USING%20TF%20FEATURES.png"/>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <table class="table">
+                  <thead class="black white-text">
+                    <tr style="text-align: center;">
+                      <th scope="col">Total statements classified:</th>
+                      <th scope="col">Confusion matrix:</th>
+                      <th scope="col">F1 score</th>
+                      <th scope="col">Precision</th>
+                        <th scope="col">Recall</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: bold;" id="r11"></td>
+                      <td style="font-weight: bold;" id="r12"></td>
+                      <td style="font-weight: bold;"id="r13"></td>
+                        <td style="font-weight: bold;" id="r14"></td>
+                      <td style="font-weight: bold;" id="r15"></td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+        <br><br>
+
+        <div class="row">
+            <div class="col">
+                <h2>NAIVE BAYES - USING TF-IDF FEATURES</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="/media/curve_NAIVE%20BAYES%20-%20USING%20TF-IDF%20FEATURES.png"/>
+            </div>
+            <div class="col">
+                <img src="/media/NAIVE%20BAYES%20-%20USING%20TF-IDF%20FEATURES.png"/>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <table class="table">
+                  <thead class="black white-text">
+                    <tr style="text-align: center;">
+                      <th scope="col">Total statements classified:</th>
+                      <th scope="col">Confusion matrix:</th>
+                      <th scope="col">F1 score</th>
+                      <th scope="col">Precision</th>
+                        <th scope="col">Recall</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: bold;" id="r16"></td>
+                      <td style="font-weight: bold;" id="r17"></td>
+                      <td style="font-weight: bold;"id="r18"></td>
+                        <td style="font-weight: bold;" id="r19"></td>
+                      <td style="font-weight: bold;" id="r20"></td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+        <br><br>
+
+        <div class="row">
+            <div class="col">
+                <h2>SVM - USING TF FEATURES</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="/media/curve_SVM%20-%20USING%20TF%20FEATURES.png"/>
+            </div>
+            <div class="col">
+                <img src="/media/SVM%20-%20USING%20TF%20FEATURES.png"/>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <table class="table">
+                  <thead class="black white-text">
+                    <tr style="text-align: center;">
+                      <th scope="col">Total statements classified:</th>
+                      <th scope="col">Confusion matrix:</th>
+                      <th scope="col">F1 score</th>
+                      <th scope="col">Precision</th>
+                        <th scope="col">Recall</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: bold;" id="r21"></td>
+                      <td style="font-weight: bold;" id="r22"></td>
+                      <td style="font-weight: bold;"id="r23"></td>
+                        <td style="font-weight: bold;" id="r24"></td>
+                      <td style="font-weight: bold;" id="r25"></td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+        <br><br>
+
+         <div class="row">
+            <div class="col">
+                <h2>SVM - USING TF-IDF FEATURES</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="/media/curve_SVM%20-%20USING%20TF-IDF%20FEATURES.png"/>
+            </div>
+            <div class="col">
+                <img src="/media/SVM%20-%20USING%20TF-IDF%20FEATURES.png"/>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <table class="table">
+                  <thead class="black white-text">
+                    <tr style="text-align: center;">
+                      <th scope="col">Total statements classified:</th>
+                      <th scope="col">Confusion matrix:</th>
+                      <th scope="col">F1 score</th>
+                      <th scope="col">Precision</th>
+                        <th scope="col">Recall</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: bold;" id="r26"></td>
+                      <td style="font-weight: bold;" id="r27"></td>
+                      <td style="font-weight: bold;"id="r28"></td>
+                        <td style="font-weight: bold;" id="r29"></td>
+                      <td style="font-weight: bold;" id="r30"></td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+        <br><br>
+    </div>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
+    <script>
+        var result = document.getElementById('result').innerHTML;
+        console.log(result);
+        result = result.split(",");
+        console.log(result);
+        res0 = result[0];
+        res1 = result[1]+result[2];
+        res2 = result[3];
+        res3 = result[4];
+        res4 = result[5];
+
+        document.getElementById('r1').innerHTML = res0;
+        document.getElementById('r2').innerHTML = res1;
+        document.getElementById('r3').innerHTML = res2;
+        document.getElementById('r4').innerHTML = res3;
+        document.getElementById('r5').innerHTML = res4;
+
+        res0 = result[6];
+        res1 = result[7]+result[8];
+        res2 = result[9];
+        res3 = result[10];
+        res4 = result[11];
+
+        document.getElementById('r6').innerHTML = res0;
+        document.getElementById('r7').innerHTML = res1;
+        document.getElementById('r8').innerHTML = res2;
+        document.getElementById('r9').innerHTML = res3;
+        document.getElementById('r10').innerHTML = res4;
+
+        res0 = result[12];
+        res1 = result[13]+result[14];
+        res2 = result[15];
+        res3 = result[16];
+        res4 = result[17];
+
+        document.getElementById('r11').innerHTML = res0;
+        document.getElementById('r12').innerHTML = res1;
+        document.getElementById('r13').innerHTML = res2;
+        document.getElementById('r14').innerHTML = res3;
+        document.getElementById('r15').innerHTML = res4;
+
+        res0 = result[18];
+        res1 = result[19]+result[20];
+        res2 = result[21];
+        res3 = result[22];
+        res4 = result[23];
+
+        document.getElementById('r16').innerHTML = res0;
+        document.getElementById('r17').innerHTML = res1;
+        document.getElementById('r18').innerHTML = res2;
+        document.getElementById('r19').innerHTML = res3;
+        document.getElementById('r20').innerHTML = res4;
+
+        res0 = result[24];
+        res1 = result[25]+result[26];
+        res2 = result[27];
+        res3 = result[28];
+        res4 = result[29];
+
+        document.getElementById('r21').innerHTML = res0;
+        document.getElementById('r22').innerHTML = res1;
+        document.getElementById('r23').innerHTML = res2;
+        document.getElementById('r24').innerHTML = res3;
+        document.getElementById('r25').innerHTML = res4;
+
+        res0 = result[30];
+        res1 = result[31]+result[32];
+        res2 = result[33];
+        res3 = result[34];
+        res4 = result[35];
+
+        document.getElementById('r26').innerHTML = res0;
+        document.getElementById('r27').innerHTML = res1;
+        document.getElementById('r28').innerHTML = res2;
+        document.getElementById('r29').innerHTML = res3;
+        document.getElementById('r30').innerHTML = res4;
+    </script>
+</body>
+
+</html>
