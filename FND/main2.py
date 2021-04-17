@@ -1,5 +1,7 @@
 import numpy as np
 import os
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import  LogisticRegression
 from sklearn import svm
@@ -167,11 +169,9 @@ def LogReg(data):
     np.mean(predicted_LogR_ngram == y_test)
     plot_PR_curve(predicted_LogR_ngram,data,'LOGISTIC REGRESSION')'''
     
-    
-	
+
 def NaiveBay(data):
 
-    
         ''' X = data['Statement']
         y = data['Label']
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42) 
@@ -198,7 +198,8 @@ def NaiveBay(data):
         ''' nb_pipeline_ngram.fit(X_train,y_train)
         predicted_nbgram = nb_pipeline_ngram.predict(X_test)
         np.mean(predicted_nbgram == y_test)
-        plot_PR_curve(predicted_nbgram,data,'NAIVE BAYES')'''
+        plot_PR_curve(predicted_nbgram,data,'NAIVE BAYES')
+        '''
 
 def svmClass(data):
     
@@ -231,13 +232,70 @@ def svmClass(data):
         predicted_svmgram = svm_pipeline_ngram.predict(X_test)
         np.mean(predicted_svmgram == y_test)
         plot_PR_curve(predicted_svmgram,data,'SVM')'''
-		 
-        
+
+
+def decisionTree(data):
+        '''X = data['Statement']
+        y = data['Label']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+        y_train= y_train.astype(int)
+        y_test = y_test.astype(int)'''
+
+        decision_pipeline = Pipeline([
+            ('decisionCV', countV),
+            ('Decision_clf', DecisionTreeClassifier())
+        ])
+
+        callClass( decision_pipeline, data, 'decision- USING TF FEATURES', 'decision - USING TF FEATURES.png')
+
+        '''svm_pipeline.fit(X_train,y_train)
+        predicted_decision = decision_pipeline.predict(X_test)
+        np.mean(predicted_decision == y_test)
+        plot_PR_curve(predicted_decision,data,'decision')'''
+
+        decision_pipeline_ngram = Pipeline([
+            ('decision_tfidf', tfidf_ngram),
+            ('decision_clf', DecisionTreeClassifier())
+        ])
+
+        callClass( decision_pipeline_ngram, data, 'decision - USING TF-IDF FEATURES', 'decision- USING TF-IDF FEATURES.png')
+
+        '''decision_pipeline_ngram.fit(X_train,y_train)
+        predicted_decisiongram = decision_pipeline_ngram.predict(X_test)
+        np.mean(predicted_decisiongram == y_test)
+        plot_PR_curve(predicted_decisiongram,data,'decision')'''
+
+
+def knnClass(data):
+        '''X = data['Statement']
+        y = data['Label']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+        y_train= y_train.astype(int)
+        y_test = y_test.astype(int)'''
+
+        knn_pipeline = Pipeline([
+            ('knnCV', countV),
+            ('knn_clf', KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2))
+        ])
+
+        callClass(knn_pipeline, data, 'knn - USING TF FEATURES', 'knn - USING TF FEATURES.png')
+
+
+
+        knn_pipeline_ngram = Pipeline([
+            ('knn_tfidf', tfidf_ngram),
+            ('knn_clf',  KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2))
+        ])
+
+        callClass(knn_pipeline_ngram, data, 'knn - USING TF-IDF FEATURES', 'knn - USING TF-IDF FEATURES.png')
+
+
 
 def first(df):
    LogReg(df)
    NaiveBay(df)
    svmClass(df)
+   decisionTree(df)
+   knnClass(df)
    
-   
-    
+

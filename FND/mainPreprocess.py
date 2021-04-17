@@ -3,6 +3,8 @@ import seaborn as sns
 from FND import readFile
 import pandas as pd
 import re
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 import os
 import csv
