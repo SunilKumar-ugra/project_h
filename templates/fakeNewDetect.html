@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fake News Detection using Machine Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/css/mdb.min.css" rel="stylesheet">
+    <style>
+        .jumbotron {
+            width: 800px;
+            height: 450px;
+            margin-left: 20%;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark primary-color" style="height: 100px;">
+  <a class="navbar-brand" href="#" style="font-weight: bold;margin-left: 28%;font-size: 28px;">Fake News Detection using Machine Learning</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav ml-auto nav-flex-icons text-white">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="{% url 'logout' %}">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+</nav>
+
+			<!-- Default form login -->
+<form method="post" action="{% url 'result' %}" class="text-center border border-light p-5" style="width:500px;height:350px; margin-left:32%;margin-top:5%">
+
+    <p class="h4 mb-4"><b>Fake News Detection Detection Using ML</b></p>
+
+    <div class="md-form form-sm mb-5">
+        <input type="text" id="news" class="form-control form-control-sm validate" name="news" required>
+        <label data-error="wrong" data-success="right" style="font-weight: bold" for="news">Enter the News</label>
+    </div>
+
+    <div class="text-center form-sm mt-2">
+      <button class="btn btn-info" type="submit" name="search"> Submit <i class="fa fa-search" style="font-size: 15px;"></i></button>
+        <h6 style="display: none;color: dodgerblue;font-weight: bold" id="text">detecting...</h6>
+        <i class="fa fa-spinner fa-spin" id="loader" style="font-size:46px;color: dodgerblue;display: none;"></i>
+    </div>
+    {% if success_msg %}
+        <br>
+        <p>Result of Entered News is {{ success_msg }} </p>
+    {% endif %}
+</form><br>
+
+
+
+<footer style="text-align: center;">
+{#       <b><p> Made with <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> by </b><a href="https://www.dsilabz.com" target="_blank"><b style="color:red;">DSI </b><b style="color:gray;">Labz</b></a> <b><p> Made with <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> by </b><a href="https://www.dsilabz.com" target="_blank"><b style="color:red;">DSI </b><b style="color:gray;">Labz</b></a>#}
+</footer>
+<!-- Default form login -->
+    <!-- js-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- js-->
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/js/mdb.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+	</script>
+	<!-- //Bootstrap Core JavaScript -->
+</body>
+
+</html>

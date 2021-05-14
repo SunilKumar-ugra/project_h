@@ -18,7 +18,11 @@ from django.urls import path
 from FND import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.getcsvfile)
+    path('',views.getcsvfile),
+    path(r'detect/', views.getResult,name='result'),
+    # path('api/', views.API),
+    path(r'logout/', views.logout, name='logout'),
+
 ]
 from Fake_News_Detection import  settings
 from django.contrib.staticfiles.urls import static
